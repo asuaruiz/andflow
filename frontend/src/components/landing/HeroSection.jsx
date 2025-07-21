@@ -1,61 +1,67 @@
 import React from "react";
-import whatsappIcon from "../../assets/icons/whatsapp.png";
-import gmailIcon from "../../assets/icons/gmail.png";
-import telegramIcon from "../../assets/icons/telegram.png";
-import facebookIcon from "../../assets/icons/facebook.png";
-import instagramIcon from "../../assets/icons/instagram.png";
+import { FaWhatsapp, FaTelegramPlane, FaFacebookMessenger, FaInstagram } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import Lottie from "lottie-react";
+import chatbotAnimation from "../../assets/lottie/chatbot.json";
 
 function HeroSection() {
   return (
-    <section style={{ textAlign: "left", padding: "2rem 1rem", maxWidth: "900px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "2.5rem", fontWeight: 700, lineHeight: "1.3", marginBottom: "1rem" }}>
-        Automatiza tareas repetitivas <br />
-        y gana tiempo para hacer crecer tu negocio
-      </h1>
+    <section className="bg-gradient-to-b from-[#084C61] to-[#018453] text-white min-h-screen flex items-center px-6 py-12 font-[Rubik]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* LADO IZQUIERDO: TEXTO */}
+        <div>
+          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
+            Automatiza tareas repetitivas <br />y gana tiempo para hacer crecer tu negocio
+          </h1>
 
-      <p style={{ fontSize: "1.2rem", marginBottom: "1.5rem" }}>
-        Conecta WhatsApp, Shopify, Gmail, Telegram y más… <br />
-        sin escribir una sola línea de código.
-      </p>
+          <p className="text-lg text-white/90 mb-6">
+            Conecta WhatsApp, Shopify, Gmail, Telegram y más… sin escribir una sola línea de código.
+          </p>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", marginBottom: "1.5rem" }}>
-        <Feature icon={whatsappIcon} text="Responde automáticamente cotizaciones por" bold="WhatsApp" />
-        <Feature icon={gmailIcon} text="Crea tareas en Trello cuando recibes un" bold="email" />
-        <Feature icon={telegramIcon} text="Envía recordatorios de pago por" bold="Telegram" />
-        <Feature icon={facebookIcon} text="Envía mensajes de bienvenida por" bold="Facebook" />
-        <Feature icon={instagramIcon} text="Recibe alertas cuando alguien te escribe por" bold="Instagram" />
+          {/* CARACTERÍSTICAS */}
+          <div className="grid sm:grid-cols-2 gap-3 text-white text-sm mb-8">
+            <Feature icon={<FaWhatsapp size={18} />} text="Responde automáticamente por WhatsApp" />
+            <Feature icon={<MdEmail size={18} />} text="Crea tareas en Trello desde emails" />
+            <Feature icon={<FaTelegramPlane size={18} />} text="Envía recordatorios por Telegram" />
+            <Feature icon={<FaFacebookMessenger size={18} />} text="Mensajes de bienvenida por Facebook" />
+            <Feature icon={<FaInstagram size={18} />} text="Alertas de mensajes en Instagram" />
+          </div>
+
+          <p className="text-sm text-green-200 mb-6">
+            Hazlo tú o deja que <span className="text-white font-bold">Andflow</span> lo haga por ti
+          </p>
+
+          <button className="bg-white text-[#018453] font-semibold px-6 py-3 rounded-lg shadow hover:bg-green-100 transition">
+            Quiero automatizar mi negocio
+          </button>
+        </div>
+
+        {/* LADO DERECHO: ANIMACIÓN + MENSAJES */}
+        <div className="w-full flex flex-col items-center gap-6">
+          <div className="w-full h-[350px] lg:h-[450px]">
+            <Lottie animationData={chatbotAnimation} loop={true} />
+          </div>
+
+          {/* CHAT ENCÁJONADO */}
+          <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 space-y-3 text-sm shadow-lg max-w-md">
+            <div className="bg-white/20 rounded-lg p-3 text-white">
+              💬 <span className="font-semibold">Cliente:</span> Hola, necesito ayuda con información de este producto
+            </div>
+            <div className="bg-green-700/40 rounded-lg p-3 text-green-100">
+              🤖 <span className="font-semibold">Bot:</span> ¡Claro que sí! Te puedo ayudar 😊
+            </div>
+          </div>
+        </div>
       </div>
-
-      <p style={{ color: "#018453", fontSize: "1rem", marginBottom: "1.5rem" }}>
-        Hazlo tú o deja que <span style={{ fontWeight: 600, color: "#047f74" }}>andflow lo haga por ti</span>
-      </p>
-
-      <button
-        style={{
-          backgroundColor: "#018453",
-          color: "white",
-          padding: "14px 28px",
-          border: "none",
-          borderRadius: 8,
-          fontWeight: "bold",
-          fontSize: "1rem",
-          cursor: "pointer",
-        }}
-      >
-        Quiero automatizar mi negocio
-      </button>
     </section>
   );
 }
 
-// Subcomponente reutilizable para ítems con íconos
-function Feature({ icon, text, bold }) {
+function Feature({ icon, text }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", flex: "1 1 300px" }}>
-      <img src={icon} alt={bold} style={{ width: 32, marginRight: 12 }} />
-      <span style={{ fontSize: "1.05rem" }}>
-        {text} <strong>{bold}</strong>
-      </span>
+    <div className="flex items-start space-x-2">
+      <div className="text-green-300 mt-1">{icon}</div>
+      <span className="text-white">{text}</span>
     </div>
   );
 }
