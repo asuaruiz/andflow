@@ -42,7 +42,7 @@ const cases = [
 
 export default function UseCases() {
   return (
-    <Box sx={{ py: 8, px: 3, backgroundColor: '#f9f9f9' }}>
+    <Box  id="casos" sx={{ py: 8, px: 3, backgroundColor: '#f9f9f9' }}>
       <Typography variant="h4" align="center" fontWeight={700} mb={6}>
         Casos de uso reales
       </Typography>

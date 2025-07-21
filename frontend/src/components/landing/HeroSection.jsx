@@ -4,9 +4,9 @@ import { MdEmail } from "react-icons/md";
 import Lottie from "lottie-react";
 import chatbotAnimation from "../../assets/lottie/chatbot.json";
 
-function HeroSection() {
+function HeroSection({ onAbrirModal }) {
   return (
-    <section className="bg-gradient-to-b from-[#084C61] to-[#018453] text-white min-h-screen flex items-center px-6 py-12 font-[Rubik]">
+    <section id="inicio" className="bg-gradient-to-b from-[#084C61] to-[#018453] text-white min-h-screen flex items-center px-6 py-12 font-[Rubik]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* LADO IZQUIERDO: TEXTO */}
         <div>
@@ -31,7 +31,11 @@ function HeroSection() {
             Hazlo tú o deja que <span className="text-white font-bold">Andflow</span> lo haga por ti
           </p>
 
-          <button className="bg-white text-[#018453] font-semibold px-6 py-3 rounded-lg shadow hover:bg-green-100 transition">
+          {/* BOTÓN QUE ABRE EL MODAL */}
+          <button
+            onClick={onAbrirModal}
+            className="bg-white text-[#018453] font-semibold px-6 py-3 rounded-lg shadow hover:bg-green-100 transition"
+          >
             Quiero automatizar mi negocio
           </button>
         </div>

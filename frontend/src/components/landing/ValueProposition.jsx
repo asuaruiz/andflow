@@ -28,7 +28,7 @@ const useCases = [
   },
 ];
 
-function ValueProposition() {
+function ValueProposition({ onAbrirModal }) {
   return (
     <Box sx={{ py: 14, backgroundColor: "#f4f4f4", textAlign: "center" }}>
       <Container maxWidth="lg">
@@ -75,6 +75,7 @@ function ValueProposition() {
 
         <Button
           variant="contained"
+          onClick={onAbrirModal} // 🔴 ESTA LÍNEA ES CLAVE
           sx={{
             backgroundColor: "#018453",
             color: "#fff",
@@ -90,6 +91,7 @@ function ValueProposition() {
         >
           Descubre cómo automatizar tu negocio
         </Button>
+
       </Container>
     </Box>
   );

@@ -4,7 +4,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-export default function Footer() {
+export default function Footer({ onAbrirModal }) {
   return (
     <Box
       sx={{
@@ -26,7 +26,10 @@ export default function Footer() {
         <Link href="#inicio" underline="none" color="inherit">Inicio</Link>
         <Link href="#bots" underline="none" color="inherit">Bots</Link>
         <Link href="#casos" underline="none" color="inherit">Casos de uso</Link>
-        <Link href="#contacto" underline="none" color="inherit">Contacto</Link>
+        {/* 🔽 Este dispara el modal */}
+        <Link component="button" underline="none" color="inherit" onClick={onAbrirModal}>
+          Contacto
+        </Link>
       </Stack>
 
       <Stack direction="row" spacing={2} justifyContent="center" mb={2}>

@@ -7,7 +7,7 @@ import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 
 const FeaturesSection = () => {
   return (
-    <Box sx={{ backgroundColor: "#f9fafb", py: 12 }}>
+    <Box id="bots" sx={{ backgroundColor: "#f9fafb", py: 12 }}>
       <Container maxWidth="lg">
         <Typography
           variant="h4"
