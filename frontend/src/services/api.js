@@ -2,7 +2,7 @@
 
 // Enviar contacto (ya existente)
 export async function enviarMensaje(data) {
-  const response = await fetch('http://localhost:3001/api/contacto', {
+  const response = await fetch('https://api.andflow.cl/api/contacto', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -17,7 +17,7 @@ export async function enviarMensaje(data) {
 
 // 👉 NUEVO: Crear sesión de chat
 export async function crearSesionChat(nombre, telefono) {
-  const response = await fetch('http://localhost:3001/api/chat/sesion', {
+  const response = await fetch('https://api.andflow.cl/api/chat/sesion', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ nombre, telefono }),
@@ -32,7 +32,7 @@ export async function crearSesionChat(nombre, telefono) {
 
 // 👉 NUEVO: Guardar mensaje de chat
 export async function guardarMensajeChat(session_id, from, text) {
-  const response = await fetch('http://localhost:3001/api/chat/mensaje', {
+  const response = await fetch('https://api.andflow.cl/api/chat/mensaje', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ session_id, from, text }),

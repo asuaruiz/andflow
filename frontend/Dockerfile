@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18
 
 WORKDIR /app
 
@@ -7,6 +7,11 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 5173
+RUN npm run build
 
-CMD ["npm", "run", "dev"]
+# Agrega un servidor para servir archivos estáticos
+RUN npm install -g serve
+
+EXPOSE 4173
+
+CMD ["serve", "-s", "dist", "-l", "4173"]

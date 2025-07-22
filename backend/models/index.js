@@ -6,9 +6,9 @@ async function syncDB() {
   let retries = 5;
   while (retries) {
     try {
-      await ContactMessage.sync();
-      await ChatSession.sync();
-      await ChatMessage.sync();
+      await ContactMessage.sync({ alter: true });
+      await ChatSession.sync({ alter: true });
+      await ChatMessage.sync({ alter: true });
       console.log("✅ Todas las tablas están sincronizadas");
       break;
     } catch (err) {
