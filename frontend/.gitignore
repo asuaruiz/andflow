@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Evitar trackear backend desde front
+../backend/
+../docker-compose.yml
+../my.cnf
+
