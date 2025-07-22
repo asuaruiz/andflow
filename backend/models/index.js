@@ -1,12 +1,15 @@
-// backend/models/index.js
 import ContactMessage from "../modules/contact/model.js";
+import ChatSession from "../modules/chatSession/model.js";
+import ChatMessage from "../modules/chatMessage/model.js";
 
 async function syncDB() {
   let retries = 5;
   while (retries) {
     try {
       await ContactMessage.sync();
-      console.log("✅ Tabla sincronizada");
+      await ChatSession.sync();
+      await ChatMessage.sync();
+      console.log("✅ Todas las tablas están sincronizadas");
       break;
     } catch (err) {
       console.log("❌ Esperando DB, retrying...", retries);
