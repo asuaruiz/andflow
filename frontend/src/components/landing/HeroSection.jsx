@@ -3,15 +3,20 @@ import { FaWhatsapp, FaTelegramPlane, FaFacebookMessenger, FaInstagram } from "r
 import { MdEmail } from "react-icons/md";
 import Lottie from "lottie-react";
 import chatbotAnimation from "../../assets/lottie/chatbot.json";
+import ChatWidget from "./ChatWidget"; // <-- Nuevo import
 
 function HeroSection({ onAbrirModal }) {
   return (
-    <section id="inicio" className="bg-gradient-to-b from-[#084C61] to-[#018453] text-white min-h-screen flex items-center px-6 py-12 font-[Rubik]">
+    <section
+      id="inicio"
+      className="bg-gradient-to-b from-[#084C61] to-[#018453] text-white min-h-screen flex items-center px-6 py-12 font-[Rubik]"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* LADO IZQUIERDO: TEXTO */}
         <div>
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
-            Automatiza tareas repetitivas <br />y gana tiempo para hacer crecer tu negocio
+            Automatiza tareas repetitivas <br />
+            y gana tiempo para hacer crecer tu negocio
           </h1>
 
           <p className="text-lg text-white/90 mb-6">
@@ -40,20 +45,17 @@ function HeroSection({ onAbrirModal }) {
           </button>
         </div>
 
-        {/* LADO DERECHO: ANIMACIÓN + MENSAJES */}
+        {/* LADO DERECHO: ANIMACIÓN + CHAT REAL */}
         <div className="w-full flex flex-col items-center gap-6">
-          <div className="w-full h-[350px] lg:h-[450px]">
-            <Lottie animationData={chatbotAnimation} loop={true} />
-          </div>
+          <div className="w-full flex justify-center -mt-10">
+    <       div className="w-[85%] max-w-[300px]">
+              <Lottie animationData={chatbotAnimation} loop={true} />
+            </div>
+        </div>
 
-          {/* CHAT ENCÁJONADO */}
-          <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 space-y-3 text-sm shadow-lg max-w-md">
-            <div className="bg-white/20 rounded-lg p-3 text-white">
-              💬 <span className="font-semibold">Cliente:</span> Hola, necesito ayuda con información de este producto
-            </div>
-            <div className="bg-green-700/40 rounded-lg p-3 text-green-100">
-              🤖 <span className="font-semibold">Bot:</span> ¡Claro que sí! Te puedo ayudar 😊
-            </div>
+          {/* WIDGET DE CHAT */}
+          <div className="w-full max-w-md">
+            <ChatWidget />
           </div>
         </div>
       </div>
